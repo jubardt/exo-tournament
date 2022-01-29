@@ -1,8 +1,8 @@
 package me.guillaume.recruitment.tournament.model;
 
 public class Weapon {
-    private int damage;
-    private String name;
+    protected int damage;
+    protected String name;
 
     public Weapon(String name, int damage){
         this.name = name;

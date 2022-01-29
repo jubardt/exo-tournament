@@ -15,12 +15,11 @@ public class Buckler extends Equipment{
     @Override
     public void action(Fighter opponent){
         if(previousBlocked){
-            this.fighter.attack(opponent);
+            opponent.attack(this.fighter);
             previousBlocked = false;
         }else{
             previousBlocked = true;
             numberBlocked++;
-            System.err.println("Bloque !!!!!");
         }
 
         if(numberBlocked == 3){

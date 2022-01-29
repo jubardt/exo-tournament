@@ -22,16 +22,15 @@ public class Fighter {
         boolean tour = false;
         while(!finCombat){
             if(!tour){
-                if(equipment!=null){
-                    action(opponent);
+                if(opponent.equipment !=null){
+                    opponent.action(this);
                 }else{
                     attack(opponent);
                 }
                 tour = true;
-
             }else{
-                if(opponent.equipment !=null){
-                    opponent.action(this);
+                if(equipment !=null){
+                    action(opponent);
                 }else{
                     opponent.attack(this);
                 }

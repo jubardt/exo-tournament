@@ -1,6 +1,8 @@
-package me.guillaume.recruitment.tournament;
+package me.guillaume.recruitment.tournament.test;
 
 
+import me.guillaume.recruitment.tournament.model.Swordsman;
+import me.guillaume.recruitment.tournament.model.Viking;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,7 +39,7 @@ public class TournamentTest {
     /**
      * a buckler cancel all the damages of a blow one time out of two
      * a buckler is destroyed after blocking 3 blow from an axe
-     */
+
     @Test
     public void SwordsmanWithBucklerVsVikingWithBuckler() {
 
@@ -52,13 +54,13 @@ public class TournamentTest {
         assertThat(swordsman.hitPoints()).isEqualTo(0);
         assertThat(viking.hitPoints()).isEqualTo(70);
 
-    }
+    }*/
 
     /**
      * an Highlander as 150 hit points and fight with a Great Sword
      * a Great Sword is a two handed sword deliver 12 damages, but can attack only 2 every 3
      * an armor : reduce all received damages by 3 & reduce delivered damages by one
-     */
+
     @Test
     public void ArmoredSwordsmanVsViking() {
 
@@ -73,14 +75,14 @@ public class TournamentTest {
         assertThat(swordsman.hitPoints()).isEqualTo(0);
         assertThat(highlander.hitPoints()).isEqualTo(10);
 
-    }
+    }*/
 
     /**
      * a vicious Swordsman is a Swordsman that put poison on his weapon.
      * poison add 20 damages on two first blows
      * a veteran Highlander goes Berserk once his hit points are under 30% of his initial total
      * once Berserk, he doubles his damages
-     */
+
     @Test // Bonus points :D
     public void ViciousSwordsmanVsVeteranHighlander() {
 
@@ -96,6 +98,6 @@ public class TournamentTest {
         assertThat(swordsman.hitPoints()).isEqualTo(1);
         assertThat(highlander.hitPoints()).isEqualTo(0);
 
-    }
+    }*/
 
 }

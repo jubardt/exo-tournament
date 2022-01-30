@@ -14,17 +14,24 @@ public class Buckler extends Equipment{
 
     @Override
     public void action(Fighter opponent){
-        if(previousBlocked){
-            opponent.attack(this.fighter);
-            previousBlocked = false;
+        if(opponent.weapon.canAttack()){
+            if(previousBlocked){
+                opponent.attack(this.fighter);
+                previousBlocked = false;
+            }else{
+                previousBlocked = true;
+                numberBlocked++;
+                opponent.weapon.majAttack();
+            }
         }else{
-            previousBlocked = true;
-            numberBlocked++;
+            opponent.weapon.majAttack();
         }
+
 
         if(numberBlocked == 3){
             if(opponent.weapon.name.contains("axe")){
                 this.fighter.destroyEquip();
+                //System.err.println("Bouclier détruit !");
             }
         }
     }

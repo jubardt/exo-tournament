@@ -9,9 +9,10 @@ public class Viking extends Fighter {
 
 
     public Viking equip(String equipmentName){
-        switch (equipmentName){
-            case "buckler":
-                this.equipment = new Buckler(this);
+        if(equipmentName.equals("buckler")){
+            this.equipmentHand = new Buckler(this);
+        }else if(equipmentName.equals("armor")){
+            this.hasArmor = true;
         }
         return this;
     }

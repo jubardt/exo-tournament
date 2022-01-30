@@ -4,12 +4,20 @@ public class Fighter {
 
     protected int hitPoints;
     protected Weapon weapon;
-    protected Equipment equipment;
+    protected Equipment equipmentHand;
+    protected boolean hasArmor;
 
     public Fighter(int hitPoints , String weapon, int weaponDamage){
         this.hitPoints = hitPoints;
         this.weapon = new Weapon(weapon,weaponDamage);
-        this.equipment = null;
+        this.equipmentHand = null;
+        this.hasArmor = false;
+    }
+
+    public Fighter(int hitPoints, Weapon weapon){
+        this.hitPoints = hitPoints;
+        this.weapon = weapon;
+        this.hasArmor = false;
     }
 
 
@@ -22,14 +30,14 @@ public class Fighter {
         boolean tour = false;
         while(!finCombat){
             if(!tour){
-                if(opponent.equipment !=null){
+                if(opponent.equipmentHand !=null){
                     opponent.action(this);
                 }else{
                     attack(opponent);
                 }
                 tour = true;
             }else{
-                if(equipment !=null){
+                if(equipmentHand !=null){
                     action(opponent);
                 }else{
                     opponent.attack(this);
@@ -43,23 +51,27 @@ public class Fighter {
     }
 
     public void attack(Fighter fighter){
-        weapon.attack(fighter);
+        weapon.attack(fighter,hasArmor);
     }
 
     public void dealDamage(int damage){
-        hitPoints = hitPoints-damage;
+        if(hasArmor){
+            hitPoints = hitPoints-(Math.max(damage - 3, 0));
+        }else{
+            hitPoints = hitPoints-damage;
+        }
         if(hitPoints < 0){
             hitPoints = 0;
         }
     }
 
     public void destroyEquip(){
-        equipment = null;
+        equipmentHand = null;
     }
 
     public void action(Fighter opponent){
-        if(equipment!=null){
-            equipment.action(opponent);
+        if(equipmentHand!=null){
+            equipmentHand.action(opponent);
         }
     }
 }

@@ -10,7 +10,19 @@ public class Weapon {
     }
 
 
-    public void attack(Fighter fighter){
-        fighter.dealDamage(damage);
+    public void attack(Fighter fighter, boolean isArmored){
+        if(isArmored){
+            //System.err.println("Je fais moins de dégat avec mon armure");
+            fighter.dealDamage(damage-1);
+        }else{
+            fighter.dealDamage(damage);
+        }
+    }
+
+    public boolean canAttack(){
+        return true;
+    }
+
+    public void majAttack(){
     }
 }

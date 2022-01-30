@@ -1,12 +1,11 @@
 package me.guillaume.recruitment.tournament.model;
 
-public class Swordsman extends Fighter {
-
-    public Swordsman() {
-        super(100, "1 hand sword", 5);
+public class Highlander extends Fighter{
+    public Highlander() {
+        super(150, new GreatSword());
     }
 
-    public Swordsman equip(String equipmentName){
+    public Highlander equip(String equipmentName){
         if(equipmentName.equals("buckler")){
             this.equipmentHand = new Buckler(this);
         }else if(equipmentName.equals("armor")){

@@ -35,4 +35,9 @@ public class Buckler extends Equipment{
             }
         }
     }
+
+    @Override
+    public boolean canProtect(){
+        return previousBlocked&&false;
+    }
 }

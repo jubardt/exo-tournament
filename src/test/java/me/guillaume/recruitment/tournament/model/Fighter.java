@@ -74,4 +74,17 @@ public class Fighter {
             equipmentHand.action(opponent);
         }
     }
+
+    public Equipment equipmentHand(){
+        return equipmentHand;
+    }
+
+    public boolean canProtect(){
+        if(equipmentHand!=null){
+            return equipmentHand().canProtect();
+        }else{
+            return false;
+        }
+
+    }
 }

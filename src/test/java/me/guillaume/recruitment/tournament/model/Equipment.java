@@ -17,4 +17,8 @@ public class Equipment {
     public void destroyEquip(){
         fighter.destroyEquip();
     }
+
+    public boolean canProtect(){
+        return false;
+    }
 }

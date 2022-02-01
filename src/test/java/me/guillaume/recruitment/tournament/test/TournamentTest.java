@@ -7,6 +7,7 @@ import me.guillaume.recruitment.tournament.model.Viking;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
 
 /**
@@ -102,5 +103,28 @@ public class TournamentTest {
         assertThat(highlander.hitPoints()).isEqualTo(0);
 
     }*/
+
+    @Test
+    public void BucklerTest() {
+
+        Swordsman swordsman = new Swordsman()
+                .equip("buckler");
+
+
+        //Viking viking = new Viking();
+
+        Viking viking = mock(Viking.class);
+
+        assertThat(swordsman.canProtect());
+        viking.attack(swordsman);
+        assertThat(!swordsman.canProtect());
+        viking.attack(swordsman);
+        assertThat(swordsman.canProtect());
+        viking.attack(swordsman);
+        assertThat(!swordsman.canProtect());
+        viking.attack(swordsman);
+        assertThat(!swordsman.canProtect());
+    }
+
 
 }
